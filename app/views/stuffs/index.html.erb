@@ -1,0 +1,27 @@
+<h3>Listing stuffs</h3>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+<% @stuffs.each do |stuff| %>
+  <tr>
+    <td><%=h stuff.title %></td>
+    <td><%=h stuff.description %></td>
+    <td>
+    <%= link_to_box 'Show', stuff_path(stuff) %>
+	</td>
+    <td><%= link_to_box 'Edit', edit_stuff_path(stuff) %></td>
+    <td><%= link_to 'Destroy', stuff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to_box 'New stuff', new_stuff_path %>
+
+
+
